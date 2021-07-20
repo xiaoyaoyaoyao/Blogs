@@ -27,7 +27,7 @@ export default {
       return
     }
     this.hostList = data.data
-  }
+  },
 };
 </script>
 

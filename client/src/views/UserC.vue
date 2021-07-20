@@ -95,7 +95,7 @@ export default {
         ],
         pass: [
           {
-            validator(rule, value, callback) {
+            validator:(rule, value, callback) =>{
               let reg = /^[\w,.?;<>/|\\:'"!@#$%^&*()+_-]{6,16}$/;
               if (reg.test(value)) {
                 callback();
@@ -111,7 +111,7 @@ export default {
             validator: (rule, value, callback) => {
               if (!value) {
                 callback(new Error("密码不能为空"));
-              } else if (value !== this.regForm.pass) {
+              } else if (value !== this.passForm.pass) {
                 callback(new Error("两次输入密码不一致"));
               } else {
                 callback();
@@ -151,29 +151,32 @@ export default {
       });
     },
     //修改密码
-    passUpdate() {
-      this.$refs.passForm.validate(async (v) => {
+     async passUpdate() {
+      this.$refs.passForm.validate(async v => {
         if (v) {
-          let { data } = await this.$axios({
+          let {data} = await this.$axios({
             method: "POST",
             url: "/user/pass",
             data: {
               oldPass: this.passForm.oldPass,
-              pass: this.passForm.pass,
-            },
-          });
+              pass: this.passForm.pass
+            }
+          })
 
           if (data.code) {
-            return this.$message.error(data.msg);
+            return this.$message.error(data.msg)
           }
+
           //提示，清除vuex，返回首页
-          this.$message.success(data.msg);
-          this.updateUserInfo({});
-          this.$router.replace("/");
+          this.$message.success(data.msg)
+          this.updateUserInfo({})
+          this.$router.replace("/")
+
         } else {
-          return false;
+          console.log("验证不通过");
+          // return false
         }
-      });
+      })
     },
     // 上传通过
     handleAvatarSuccess(res, file) {

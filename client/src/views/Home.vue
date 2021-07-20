@@ -148,7 +148,7 @@
             <p class="img">
               <img src="../assets/img/technology/vue.jpg" height="30" alt="" />
             </p>
-            <p class="company">Qingyi Technology</p>
+            <p class="company">ZhongLianWuXian Technology</p>
             <p class="content">
               Responsible for the development of independent official website of
               some subjects of the company.And also Responsible for some outsourcing 
@@ -169,7 +169,7 @@
                 alt=""
               />
             </p>
-            <p class="company">Chengdu Compal</p>
+            <p class="company">YWY Technology</p>
             <p class="content">
               Worked as an assistant of web developer. Develop and maintain the company 
               intranet, staff online class system and background management system.

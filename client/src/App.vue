@@ -9,7 +9,7 @@
       <AppSide></AppSide>
     </div>
     <!-- 路由页面 -->
-    <router-view :key="key"></router-view>
+    <router-view></router-view>
     <!--漂浮猫爪-->
     <Kitty></Kitty> 
   </div>
@@ -22,11 +22,6 @@ import Kitty from "@/components/Kitty"
 import {mapMutations} from "vuex"
 
 export default {
-  computed: {
-    key() {
-      return this.$route.fullPath
-    }
-  },
   components: {
     AppNav,
     AppSide,

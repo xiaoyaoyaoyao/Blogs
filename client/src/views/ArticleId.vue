@@ -20,11 +20,20 @@ export default {
     if (data.code) {
       return this.$message.error("文章id错误，查询失败");
     }
-    $.get(this.baseURL + data.data, (md) => {
-      editormd.markdownToHTML("article-main", {
-        markdown: md,
+    this.$nextTick(() => {
+      this.clearContent();
+      $.get(this.baseURL + data.data, (md) => {
+        editormd.markdownToHTML("article-main", {
+          markdown: md,
+        });
       });
     });
+  },
+  methods: {
+    clearContent() {
+      const content = document.querySelector("#article-main");
+      content.innerHTML = "";
+    },
   },
 };
 </script>
